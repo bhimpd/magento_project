@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="students" resource="default" engine="innodb" comment="custom student table">
+        <!-- Define Columns -->
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="student ID"/>
+        <column xsi:type="varchar" name="name" nullable="false" comment="student name"/>
+        <column xsi:type="int" name="age" nullable="false" comment="student age"/>
+
+        <column xsi:type="varchar" name="address" nullable="true" comment="student address"/>
+        
+        <!-- Define Indexes -->
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        
+        <!-- Define Foreign Keys -->
+        <!-- Example:
+        <constraint xsi:type="foreign" referenceId="FK_ENTITY_PARENT_ID_PARENT_ENTITY_ENTITY_ID"
+                    table="your_table_name" column="parent_id" referenceTable="parent_entity" referenceColumn="entity_id"
+                    onDelete="CASCADE"/>
+        -->
+    </table>
+     <!-- Define the custom_blog_post table -->
+    <table name="custom_blog_post" resource="default" engine="innodb" comment="Custom Blog Post Table">
+        <!-- Define Columns -->
+        <column xsi:type="int" name="post_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Post ID"/>
+        <column xsi:type="varchar" name="name" nullable="false" comment="Post Name"/>
+        <column xsi:type="varchar" name="url_key" nullable="false" comment="Post URL Key"/>
+        <column xsi:type="text" name="post_content" nullable="true" comment="Post Content"/>
+        <column xsi:type="varchar" name="tags" nullable="true" comment="Post Tags"/>
+        <column xsi:type="int" name="status" nullable="true" comment="Post Status"/>
+        <column xsi:type="varchar" name="featured_image" nullable="true" comment="Post Featured Image"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP"
+                 comment="Updated At"/>
+        
+        <!-- Define Indexes -->
+         <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="post_id"/>
+        </constraint>
+        
+        <index referenceId="FULLTEXT_INDEX" indexType="fulltext">
+            <column name="name"/>
+            <column name="url_key"/>
+            <column name="post_content"/>
+            <column name="tags"/>
+            <column name="featured_image"/>
+        </index>
+        
+        <!-- Define Foreign Keys -->
+        <!-- Example:
+        <constraint xsi:type="foreign" referenceId="FK_ENTITY_PARENT_ID_PARENT_ENTITY_ENTITY_ID"
+                    table="your_table_name" column="parent_id" referenceTable="parent_entity" referenceColumn="entity_id"
+                    onDelete="CASCADE"/>
+        -->
+    </table>
+</schema>

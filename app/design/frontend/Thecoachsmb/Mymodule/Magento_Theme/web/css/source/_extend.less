@@ -1,0 +1,247 @@
+@button-primary__background: #C92B40;
+@button-primary__border: #C92B40;
+@button-primary__hover__background: #a73443;
+@footer__background__color: #181616;
+@footer__links-color: #ffffff;
+@footer__links-color-current: #7C909F;
+@footer__content-color: #fff;
+
+// Header
+@header__background: #163AAC;
+
+// Navigation
+@navigation-desktop-level0-item__color: #ffffff;
+@navigation-desktop__font-weight: @font-weight__heavier;
+@navigation-desktop-level0-item__hover__color: #ffffff;
+@navigation__desktop-level0-submenu__color: #163AAC;
+@navigation-desktop-level0-item__active__border-width: 0 0 2px;
+@navigation-desktop-level0-item__active__border-color: #ffffff;
+@submenu-desktop-item__active__border-width: 0;
+@submenu-desktop-item__hover__background: #D9E4ED;
+
+// Customer Links
+@header__desktop-links-color: #ffffff;
+@header__desktop-links-authorization-link__hover: #3F5BB6;
+
+// Minicart
+@minicart-icons-color: #ffffff;
+@minicart-icons-color-hover: #3F5BB6;
+
+// Search
+@search__desktop-input__color: #ffffff;
+@search__desktop-input__background: #3F5BB6;
+@search__desktop-input__border: 1px solid #163AAC;
+@search__desktop-input__placeholder-color: #ffffff;
+@header-search-icons-color: #ffffff;
+
+// Mobile Navigation
+@collapsible-nav-background: #ffffff;
+@collapsible-nav-active-background: #D9E4ED;
+@collapsible-nav-title-color: #555555;
+
+// Common
+& when (@media-common = true) {
+    // Footer
+    .footer {
+        &.content {
+            border: none !important;
+
+            a {
+                color: @footer__links-color !important;
+
+                &:hover {
+                    text-decoration-line: @footer__links-color !important;
+                }
+            }
+
+            .copyright {
+                color: @footer__content-color !important;
+            }
+        }
+
+        .footer.links {
+            .current {
+                color: @footer__links-color-current !important;
+            }
+        }
+    }
+
+    // Header
+    .page-header {
+        background: @header__background;
+
+        .block-search {
+            .search::before {
+                color: @header-search-icons-color !important;
+            }
+        }
+
+        // Mini Cart
+        .minicart-wrapper {
+            .action {
+                &.showcart .counter.qty {
+                    background: @header-search-icons-color;
+                }
+            }
+        }
+    }
+}
+
+// Mobile
+@media only screen and (max-width: @screen__m) {
+    .nav-sections-item-title {
+        border: none;
+        background: @collapsible-nav-active-background;
+        a {
+            color: @collapsible-nav-title-color;
+        }
+    }
+
+    .navigation {
+        background: @collapsible-nav-background;
+
+        .level0 {
+            .level1 {
+                font-weight: @font-weight__heavier;
+            }
+
+            > .level-top {
+                text-transform: none;
+                font-weight: @font-weight__heavier;
+            }
+
+            &.active,
+            &.has-active {
+                > a:not(.ui-state-active) {
+                    border: none;
+                    background: @collapsible-nav-active-background;
+                    padding-left: 20px;
+                }
+            }
+        }
+
+        .submenu:not(:first-child) .active > a {
+            border: none;
+            background: @collapsible-nav-active-background;
+        }
+    }
+
+    .nav-sections {
+        background: @collapsible-nav-background;
+    }
+
+    .page-header {
+        nav-toggle {
+            &:before {
+                color: @collapsible-nav-background;
+                margin-top: 3px;
+            }
+        }
+
+        .minicart-wrapper {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .header.links {
+            display: none;
+        }
+
+        .block-search {
+            .label {
+                margin-right: 60px;
+            }
+
+            .label::before {
+                color: @header-search-icons-color;
+            }
+        }
+    }
+}
+
+// Desktop
+@media only screen and (min-width: @screen__m) {
+    .page-header {
+        margin-bottom: 20px;
+
+        .header.content {
+            display: flex;
+            align-items: center;
+            padding: 0;
+
+            .logo {
+                margin: 10px;
+            }
+
+            .nav-sections {
+                background: none;
+                margin-bottom: 0;
+
+                .navigation {
+                    background: none;
+
+                    .level0 .submenu a {
+                        color: @navigation__desktop-level0-submenu__color;
+                        font-weight: @font-weight__heavier;
+                    }
+                }
+            }
+
+            .greet.welcome {
+                display: none;
+            }
+
+            .block-search {
+                padding-left: 25px;
+                position: relative;
+                width: 300px;
+                z-index: 4;
+                float: left;
+
+                .control {
+                    padding: 0;
+                }
+
+                .search::before {
+                    color: @header-search-icons-color !important;
+                }
+
+                input {
+                    font-size: 1.4rem;
+                    border-radius: 5px;
+                    padding: 16px;
+                    height: 38px;
+                    color: #ffffff;
+                    background: @search__desktop-input__background;
+                    border: @search__desktop-input__border;
+                    &::placeholder {
+                        color: @search__desktop-input__placeholder-color;
+                    }
+                }
+            }
+
+            .header.links {
+                margin: 0;
+                list-style: none;
+
+                .authorization-link a {
+                    margin-top: 8px;
+                    text-align: center;
+                    display: block;
+                    border: 1px solid white;
+                    padding: 7px 20px;
+                    color: @header__desktop-links-color;
+                    font-size: 1.5rem;
+                    border-radius: 5px;
+                    font-weight: 600;
+
+                    &:hover {
+                        text-decoration: none;
+                        background: @header__desktop-links-authorization-link__hover;
+                    }
+                }
+            }
+        }
+    }
+}

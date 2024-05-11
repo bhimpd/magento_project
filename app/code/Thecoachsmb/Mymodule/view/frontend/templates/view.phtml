@@ -1,0 +1,10 @@
+<h2><?php echo 'This is my first module'; ?></h2>
+<?php 
+$collection = $block->getCollection();
+foreach ($collection as $post) { ?>
+    <h3><?php echo $post->getTitle(); ?></h3>
+    <h4><?php echo date('F j, Y', strtotime($post->getCreatedAt())); ?></h4>
+    <p><?php echo $post->getContent(); ?></p>
+<?php 
+}
+?>

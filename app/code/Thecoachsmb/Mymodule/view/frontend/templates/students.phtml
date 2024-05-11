@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($block->getStudents() as $student): ?>
+            <tr>
+                <td><?php echo $student['id']; ?></td>
+                <td><?php echo $student['name']; ?></td>
+                <td><?php echo $student['age']; ?></td>
+                <td><?php echo $student['address']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
