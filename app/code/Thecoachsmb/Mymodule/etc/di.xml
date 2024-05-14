@@ -26,4 +26,11 @@
         <plugin name="after_plugin_getname" type="Thecoachsmb\Mymodule\Plugin\Catalog" sortOrder="1" disabled="true" />
     </type>
 
+    <preference for="Thecoachsmb\Mymodule\Api\RestapiInterface" type="Thecoachsmb\Mymodule\Model\Test" />
+    <virtualType name="ResourceConnection" type="Magento\Framework\App\ResourceConnection">
+        <arguments>
+            <argument name="resourceName" xsi:type="string">default</argument>
+        </arguments>
+    </virtualType>
+
 </config>
