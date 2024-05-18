@@ -13,14 +13,11 @@
         <item name="template" xsi:type="string">templates/form/collapsible</item>
         <item name="buttons" xsi:type="array">
             <item name="save" xsi:type="string">Thecoachsmb\Mymodule\Block\Adminhtml\Edit\Button\Save</item>
-            <item name="delete" xsi:type="string">Thecoachsmb\Mymodule\Block\Adminhtml\Edit\Button\Delete</item>
-        </item> 
-        <item name="form_key" xsi:type="string">$formKey</item>
+            <!-- <item name="delete" xsi:type="string">Thecoachsmb\Mymodule\Block\Adminhtml\Edit\Button\Delete</item> -->
+        </item>
     </argument>
-    <dataSource name="customblog_form_data_source">
-        <settings>
-            <submitUrl path="customblog/post/savepost"/>
-        </settings>
+   <dataSource name="customblog_form_data_source">
+    
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Thecoachsmb\Mymodule\Model\DataProvider</argument>
             <argument name="name" xsi:type="string">customblog_form_data_source</argument>
@@ -32,6 +29,9 @@
                 <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
             </item>
         </argument>
+         <settings>
+            <submitUrl path="customblog/post/savepost"/>
+         </settings>
     </dataSource>
     <fieldset name="customblog_new_form">
         <argument name="data" xsi:type="array">
@@ -41,19 +41,16 @@
                 <item name="sortOrder" xsi:type="number">20</item>
             </item>
         </argument>
-         <field name="post_id">
+        <field name="post_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Name</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">customblog_form</item>
                     <item name="dataScope" xsi:type="string">post_id</item>
+                    <item name="visible" xsi:type="boolean">false</item>
                 </item>
             </argument>
-             <settings>
-                      <visible>false</visible>
-             </settings>
         </field>
         <field name="name">
             <argument name="data" xsi:type="array">
