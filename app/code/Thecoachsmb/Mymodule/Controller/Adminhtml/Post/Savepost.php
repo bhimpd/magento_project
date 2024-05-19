@@ -18,30 +18,24 @@ class Savepost extends \Magento\Backend\App\Action
 		$this->resultPageFactory = $resultPageFactory;
 	}
 
+	
 	public function execute()
 	{
 		$data = $this->getRequest()->getPostValue();
       /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
-        $id=$this->getRequest()->getParam('post_id');
-        //echo $id; exit;
 	     try{
-	        /** @var \Magento\Cms\Model\Page $model */
-	           if(isset($id) && !empty($id)){
-	           	   $model = $this->postFactory->create()->load($id);
-				   $model->addData($data);
-				   $model->save();
-	           }else{
-		           $model = $this->postFactory->create();
-				   $model->setData($data);
-				   $model->save();
-			   }
+	     /** @var \Magento\Cms\Model\Page $model */
+	           $model = $this->postFactory->create();
+			   $model->setData($data);
+			   $model->save();
 		    	$this->messageManager->addSuccessMessage(__('You saved the post.'));
 			}catch(\Exception $e){
 				 $this->messageManager->addExceptionMessage($e, __('Something went wrong while saving the post.'));
 			}
 	 return $resultRedirect->setPath('*/*/');
 	}
+
 
 
 }

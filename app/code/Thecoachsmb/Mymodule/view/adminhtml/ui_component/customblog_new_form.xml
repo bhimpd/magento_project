@@ -41,17 +41,7 @@
                 <item name="sortOrder" xsi:type="number">20</item>
             </item>
         </argument>
-        <field name="post_id">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">customblog_form</item>
-                    <item name="dataScope" xsi:type="string">post_id</item>
-                    <item name="visible" xsi:type="boolean">false</item>
-                </item>
-            </argument>
-        </field>
+       
         <field name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
