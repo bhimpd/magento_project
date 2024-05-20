@@ -2,7 +2,7 @@
 
 namespace Thecoachsmb\Mymodule\Controller\Adminhtml\Post;
 
-class Savepost extends \Magento\Backend\App\Action
+class Deletepost extends \Magento\Backend\App\Action
 {
 	protected $resultPageFactory = false;
 	protected $postFactory;
@@ -18,29 +18,21 @@ class Savepost extends \Magento\Backend\App\Action
 		$this->resultPageFactory = $resultPageFactory;
 	}
 
-	
 	public function execute()
 	{
-		$data = $this->getRequest()->getPostValue();
-      /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
-        $resultRedirect = $this->resultRedirectFactory->create();
-		$id=$this->getRequest()->getParam('post_id');
 
-		try{
-	        /** @var \Magento\Cms\Model\Page $model */
-	           if(isset($id) && !empty($id)){
+        $resultRedirect = $this->resultRedirectFactory->create();
+        $id=$this->getRequest()->getParam('id');
+       // echo $id; exit;
+	     try{
 	           	   $model = $this->postFactory->create()->load($id);
-				   $model->addData($data);
-				   $model->save();
-	           }else{
-		           $model = $this->postFactory->create();
-				   $model->setData($data);
-				   $model->save();
-			   }
-		    	$this->messageManager->addSuccessMessage(__('You saved the post.'));
+				   $model->delete();
+		    	$this->messageManager->addSuccessMessage(__('You have deleted the post.'));
 			}catch(\Exception $e){
 				 $this->messageManager->addExceptionMessage($e, __('Something went wrong while saving the post.'));
 			}
 	 return $resultRedirect->setPath('*/*/');
 	}
+
+
 }

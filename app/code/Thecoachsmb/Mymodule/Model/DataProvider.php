@@ -42,6 +42,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
     public function getData()
     {
         $items = $this->collection->getItems();
+        // print_r($items);exit;
         $this->loadedData = array();
         /** @var Customer $customer */
         foreach ($items as $blog) {

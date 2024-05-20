@@ -13,7 +13,7 @@
         <item name="template" xsi:type="string">templates/form/collapsible</item>
         <item name="buttons" xsi:type="array">
             <item name="save" xsi:type="string">Thecoachsmb\Mymodule\Block\Adminhtml\Edit\Button\Save</item>
-            <!-- <item name="delete" xsi:type="string">Thecoachsmb\Mymodule\Block\Adminhtml\Edit\Button\Delete</item> -->
+            <item name="delete" xsi:type="string">Thecoachsmb\Mymodule\Block\Adminhtml\Edit\Button\Delete</item>
         </item>
     </argument>
    <dataSource name="customblog_form_data_source">
@@ -41,7 +41,7 @@
                 <item name="sortOrder" xsi:type="number">20</item>
             </item>
         </argument>
-        <field name="post_id">
+        <!-- <field name="post_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
@@ -54,7 +54,7 @@
              <settings>
                       <visible>false</visible>
              </settings>
-        </field>
+        </field> -->
         <field name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

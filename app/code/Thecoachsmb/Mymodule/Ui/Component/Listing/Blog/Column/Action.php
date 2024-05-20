@@ -10,6 +10,10 @@ class Action extends Column
 {
     /** Url path */
     const ROW_EDIT_URL = 'customblog/post/newpost';
+
+     /** Url path */
+     const ROW_DELETE_URL = 'customblog/post/deletepost';
+
     /** @var UrlInterface */
     protected $_urlBuilder;
 
@@ -58,6 +62,13 @@ class Action extends Column
                             ['id' => $item['post_id']]
                         ),
                         'label' => __('Edit'),
+                    ];
+                    $item[$name]['delete'] = [
+                        'href' => $this->_urlBuilder->getUrl(
+                            self::ROW_DELETE_URL,
+                            ['id' => $item['post_id']]
+                        ),
+                        'label' => __('Delete'),
                     ];
                 }
             }
