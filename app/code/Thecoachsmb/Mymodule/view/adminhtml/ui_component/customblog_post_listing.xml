@@ -66,6 +66,19 @@
                     </item>
                 </argument>
             </action>
+            <action name="edit">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">edit</item>
+                        <item name="label" xsi:type="string" translate="true">Edit</item>
+                        <item name="url" xsi:type="url" path="customblog/post/massEdit"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Edit Post</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you wan't to edit selected items?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
         </massaction>
     </listingToolbar>
   
