@@ -1,27 +1,7 @@
 <?xml version="1.0"?>
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
-    <table name="students" resource="default" engine="innodb" comment="custom student table">
-        <!-- Define Columns -->
-        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true"
-                comment="student ID"/>
-        <column xsi:type="varchar" name="name" nullable="false" comment="student name"/>
-        <column xsi:type="int" name="age" nullable="false" comment="student age"/>
-
-        <column xsi:type="varchar" name="address" nullable="true" comment="student address"/>
-        
-        <!-- Define Indexes -->
-        <constraint xsi:type="primary" referenceId="PRIMARY">
-            <column name="id"/>
-        </constraint>
-        
-        <!-- Define Foreign Keys -->
-        <!-- Example:
-        <constraint xsi:type="foreign" referenceId="FK_ENTITY_PARENT_ID_PARENT_ENTITY_ENTITY_ID"
-                    table="your_table_name" column="parent_id" referenceTable="parent_entity" referenceColumn="entity_id"
-                    onDelete="CASCADE"/>
-        -->
-    </table>
+   
      <!-- Define the custom_blog_post table -->
     <table name="custom_blog_post" resource="default" engine="innodb" comment="Custom Blog Post Table">
         <!-- Define Columns -->
@@ -58,13 +38,5 @@
                     onDelete="CASCADE"/>
         -->
     </table>
-    <table name="posts" resource="default" comment="List of data/schema patches">
-       <column xsi:type="int" name="id" identity="true" comment="Primary Key"/>
-       <column xsi:type="int" name="userId" nullable="false" comment="User ID"/>
-       <column xsi:type="varchar" name="title" length="255" nullable="false" comment="Title"/>
-       <column xsi:type="text" name="body" nullable="false" comment="Body"/>
-       <constraint xsi:type="primary" referenceId="PRIMARY">
-           <column name="id" />
-       </constraint>
-   </table>
+  
 </schema>
