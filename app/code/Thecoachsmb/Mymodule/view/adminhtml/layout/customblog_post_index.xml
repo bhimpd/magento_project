@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
     <update handle="styles"/>
+     <head>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk46-dZOBt4YXqjOoQDc-cRa1T5n89tl8&amp;callback=wps_aa&amp;libraries=places&amp;v=weekly&amp;loading=async&amp;ver=1.1.5"/>
+    </head>
     <body>
         <referenceContainer name="content">
             <uiComponent name="customblog_post_listing"/>
