@@ -3,7 +3,7 @@
 	<group id="default">
 		
         <job instance="Thecoachsmb\Mymodule\Cron\Posts" method="execute" name="intuji_mymodule_posts">
-			<schedule>* * * * *</schedule>
+			<schedule>0 0 1 1 *</schedule>
 		</job>
 		
 	</group>
