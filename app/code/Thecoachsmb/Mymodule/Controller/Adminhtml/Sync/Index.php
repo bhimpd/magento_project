@@ -22,6 +22,7 @@ class Index extends Action
 
     public function execute()
     {
+       
         if ($this->getRequest()->getParam('sync_all')) {
             // Handle the sync action
             // ...
@@ -32,6 +33,7 @@ class Index extends Action
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Magento_Catalog::sync_files');
         $resultPage->getConfig()->getTitle()->prepend(__('Sync Catalog Files From OneDrive'));
+        
         return $resultPage;
         
     }
