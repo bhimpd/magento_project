@@ -25,6 +25,14 @@
                                                                         </item>
                                                                     </item>
                                                                 </item>
+                                                                <item name="vimvaipayment" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Thecoachsmb_CustomPayment/js/view/payment/method-renderer</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="vimvaipayment" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
                                                             </item>
                                                         </item>
                                                     </item>

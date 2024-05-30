@@ -1,0 +1,28 @@
+<?php
+/** @var $block \Magento\Checkout\Block\Onepage\Success */
+$order = $block->getOrder();
+$paymentMethod = $order->getPayment()->getMethod();
+?>
+
+<div class="checkout-success">
+    <?php if ($paymentMethod == 'checkmo'): // Check / Money Order ?>
+        <h2 style="color:blue;font-weight:bolder;">Thank you for your order!</h2>
+        <h2 style="color:green">You have chosen Money Order Payment.</h2>
+        
+    <?php elseif ($paymentMethod == 'vimvaipayment'): // VimVai Payment Method ?>
+        <h2 style="color:blue;font-weight:bolder;">Thank you for your order!</h2>
+        <h2 style="color:green">You have chosen <span style="font-weight:bolder;color:purple">VIM VAI</span> Payment Method...</h2>
+
+    <?php elseif ($paymentMethod == 'banktransfer'): // Bank Transfer Payment ?>
+        <h2 style="color:blue;font-weight:bolder;">Thank you for your order!</h2>
+        <h2 style="color:green">You have chosen Bank Transfer Payment.</h2>
+        
+    <?php elseif ($paymentMethod == 'testpayment'): // Custom Payment Method ?>
+        <h2 style="color:blue;font-weight:bolder;">Thank you for your order!</h2>
+        <h2 style="color:green">You have chosen Testing Payment Method.</h2>
+
+    <?php else: // Default message for other payment methods ?>
+        <h2 style="color:blue;font-weight:bolder;">Thank you for your order!</h2>
+        <h2 style="color:green">You have chosen an alternative payment method.</h2>
+    <?php endif; ?>
+</div>
