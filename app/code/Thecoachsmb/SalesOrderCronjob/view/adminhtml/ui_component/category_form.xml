@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+ <fieldset name="custom_attributes" sortOrder="40">
+     <settings>
+         <collapsible>true</collapsible>
+         <label translate="true">Custom Attributes</label>
+     </settings>
+     <field name="custom_text" sortOrder="10" formElement="input">
+         <settings>
+             <dataType>string</dataType>
+             <label translate="true">Custom Text</label>
+             <visible>true</visible>
+             <validation>
+                 <rule name="required-entry" xsi:type="boolean">false</rule>
+             </validation>
+         </settings>
+     </field>
+        <field name="image" sortOrder="40" formElement="imageUploader">
+          <argument name="data" xsi:type="array">
+              <item name="config" xsi:type="array">
+                  <item name="source" xsi:type="string">category</item>
+              </item>
+          </argument>
+          <settings>
+              <elementTmpl>ui/form/element/uploader/image</elementTmpl>
+              <dataType>string</dataType>
+              <label translate="true">Custom Image</label>
+              <visible>true</visible>
+              <required>false</required>
+          </settings>
+          <formElements>
+              <imageUploader>
+                  <settings>
+                      <required>false</required>
+                      <uploaderConfig>
+                          <param xsi:type="url" name="url" path="catalog/category_image/upload"/>
+                      </uploaderConfig>
+                      <previewTmpl>Magento_Catalog/image-preview</previewTmpl>
+                      <openDialogTitle>Media Gallery</openDialogTitle>
+                      <initialMediaGalleryOpenSubpath>catalog/category</initialMediaGalleryOpenSubpath>
+                      <allowedExtensions>jpg jpeg gif png</allowedExtensions>
+                      <maxFileSize>4194304</maxFileSize>
+                  </settings>
+              </imageUploader>
+          </formElements>
+      </field>
+   
+     <field name="description" template="ui/form/field" sortOrder="50" formElement="wysiwyg">
+           <argument name="data" xsi:type="array">
+               <item name="config" xsi:type="array">
+                   <item name="wysiwygConfigData" xsi:type="array">
+                       <item name="height" xsi:type="string">100px</item>
+                       <item name="add_variables" xsi:type="boolean">false</item>
+                       <item name="add_widgets" xsi:type="boolean">false</item>
+                       <item name="add_images" xsi:type="boolean">true</item>
+                       <item name="add_directives" xsi:type="boolean">true</item>
+                   </item>
+                   <item name="source" xsi:type="string">category</item>
+               </item>
+           </argument>
+           <settings>
+               <label translate="true"> Short Description</label>
+               <dataScope>description</dataScope>
+           </settings>
+           <formElements>
+               <wysiwyg class="Magento\Catalog\Ui\Component\Category\Form\Element\Wysiwyg">
+                   <settings>
+                       <rows>8</rows>
+                       <wysiwyg>true</wysiwyg>
+                   </settings>
+               </wysiwyg>
+           </formElements>
+       </field>
+      
+ </fieldset>
+ </form>
