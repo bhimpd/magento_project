@@ -1,0 +1,34 @@
+<?php
+/**
+ * @var \Thecoachsmb\SalesOrderCronjob\Block\CategoryAttributes $block
+ * @var \Thecoachsmb\SalesOrderCronjob\Api\Data\CustomCategoryInterface $category
+ */
+$category = $block->getCurrentCategory();
+
+if (!$category) {
+    echo '<div class="message error">Category not found or invalid.</div>';
+    return;
+}
+?>
+
+<?php if ($category->getCustomText()): ?>
+    <div class="custom-text">
+        <h3><?= __('Custom Text') ?></h3>
+        <p><?= $category->getCustomText() ?></p>
+    </div>
+<?php endif; ?>
+
+<?php if ($category->getShortDescriptions()): ?>
+    <div class="short-description">
+        <h3><?= __('Short Description') ?></h3>
+        <p><?= $category->getShortDescriptions() ?></p>
+    </div>
+<?php endif; ?>
+
+<?php if ($category->getCustomImage()): ?>
+    <div class="custom-image">
+        <h3><?= __('Custom Category Image') ?></h3>
+        <?php $imageUrl = $block->getViewFileUrl('Thecoachsmb_SalesOrderCronjob::images/' . $category->getCustomImage()); ?>
+        <img src="<?= $imageUrl ?>" alt="Custom Category Image" />
+    </div>
+<?php endif; ?>
