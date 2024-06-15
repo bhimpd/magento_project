@@ -25,6 +25,9 @@ use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Sales\Api\OrderRepositoryInterface;
 
 
+
+use Magento\Catalog\Helper\Image as ImageHelper;
+
 class TestRoute extends Action
 {
 
@@ -32,19 +35,24 @@ class TestRoute extends Action
     protected $orderRepository;
     protected $customerRepository;
     protected $productRepository;
+    protected $imageHelper;
 
 public function __construct(
     Context $context,
     PageFactory $resultPageFactory,
     ProductRepositoryInterface $productRepository,
     OrderRepositoryInterface $orderRepository,
-    CustomerRepositoryInterface $customerRepository
+    CustomerRepositoryInterface $customerRepository,
+    ImageHelper $imageHelper
+
 ){
 
     $this->resultPageFactory = $resultPageFactory;
     $this->productRepository = $productRepository;
     $this->orderRepository = $orderRepository;
     $this->customerRepository = $customerRepository;
+    $this->imageHelper = $imageHelper;
+
 
 
     parent::__construct($context);
@@ -69,11 +77,19 @@ public function execute()
     $customerId = 1; // Example customer ID
     $customer = $this->customerRepository->getById($customerId);
 
+
+
+
+        // Retrieve product image URL
+        $imageUrl = $this->imageHelper->init($product, 'product_base_image')->getUrl();
+
     // Pass data to the block
     $resultPage->getLayout()->getBlock('testroute')
         ->setData('product', $product)
         ->setData('order', $order)
-        ->setData('customer', $customer);
+        ->setData('customer', $customer)
+        ->setData('product_image_url', $imageUrl);
+
 
     return $resultPage;
 }

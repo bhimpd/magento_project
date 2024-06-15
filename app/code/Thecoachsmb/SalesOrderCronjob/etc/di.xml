@@ -8,6 +8,8 @@
             <argument name="productRepository" xsi:type="object">Magento\Catalog\Api\ProductRepositoryInterface</argument>
             <argument name="orderRepository" xsi:type="object">Magento\Sales\Api\OrderRepositoryInterface</argument>
             <argument name="customerRepository" xsi:type="object">Magento\Customer\Api\CustomerRepositoryInterface</argument>
+            <argument name="imageHelper" xsi:type="object">Magento\Catalog\Helper\Image</argument>
+
         </arguments>
     </type>
 </config>
