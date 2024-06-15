@@ -1,0 +1,12 @@
+<h1>Hello from Test Module</h1>
+<h2>Product Details</h2>
+<p>Name: <?php echo $block->getData('product')->getName(); ?></p>
+<p>SKU: <?php echo $block->getData('product')->getSku(); ?></p>
+
+<h2>Order Details</h2>
+<p>Order ID: <?php echo $block->getData('order')->getEntityId(); ?></p>
+<p>Status: <?php echo $block->getData('order')->getStatus(); ?></p>
+
+<h2>Customer Details</h2>
+<p>First Name: <?php echo $block->getData('customer')->getFirstname(); ?></p>
+<p>Last Name: <?php echo $block->getData('customer')->getLastname(); ?></p>

@@ -1,4 +1,13 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Thecoachsmb\SalesOrderCronjob\Api\Data\CustomCategoryInterface" type="Magento\Catalog\Model\Category"/>
+<type name="Thecoachsmb\SalesOrderCronjob\Controller\TestRoute\TestRoute">
+        <arguments>
+            <argument name="context" xsi:type="object">Magento\Framework\App\Action\Context</argument>
+            <argument name="resultPageFactory" xsi:type="object">Magento\Framework\View\Result\PageFactory</argument>
+            <argument name="productRepository" xsi:type="object">Magento\Catalog\Api\ProductRepositoryInterface</argument>
+            <argument name="orderRepository" xsi:type="object">Magento\Sales\Api\OrderRepositoryInterface</argument>
+            <argument name="customerRepository" xsi:type="object">Magento\Customer\Api\CustomerRepositoryInterface</argument>
+        </arguments>
+    </type>
 </config>
